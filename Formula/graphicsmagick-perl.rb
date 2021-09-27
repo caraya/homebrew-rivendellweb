@@ -2,7 +2,7 @@ class GraphicsmagickPerl < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.36/GraphicsMagick-1.3.36.tar.xz"
-  version "5"
+  version "6"
   sha256 "5d5b3fde759cdfc307aaf21df9ebd8c752e3f088bb051dd5df8aac7ba7338f46"
   head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
@@ -20,7 +20,7 @@ class GraphicsmagickPerl < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+  # uses_from_macos "zlib"
 
   conflicts_with "graphicsmagick", because: "both packages install the same binaries"
 
