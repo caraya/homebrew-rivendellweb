@@ -37,6 +37,7 @@ class GraphicsmagickPerl < Formula
       --with-quantum-depth=16
       --without-lzma
       --without-x
+      --without-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-wmf
     ]
