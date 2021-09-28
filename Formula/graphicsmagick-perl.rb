@@ -27,6 +27,8 @@ class GraphicsmagickPerl < Formula
   skip_clean :la
 
   def install
+    env["LDFLAGS"] = "-fPIC"
+
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
@@ -41,6 +43,7 @@ class GraphicsmagickPerl < Formula
       --without-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-wmf
+      LDFLAGS=#{ENV.ldflags}
     ]
 
     # versioned stuff in main tree is pointless for us
