@@ -27,6 +27,8 @@ class GraphicsmagickPerl < Formula
   skip_clean :la
 
   def install
+    ENV["LDFLAGS"]="-fPIC"
+
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
