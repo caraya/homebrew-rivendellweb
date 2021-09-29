@@ -27,7 +27,7 @@ class GraphicsmagickPerl < Formula
   skip_clean :la
 
   def install
-    ENV["cflags"]="-fPIC"
+    ENV.append_to_cflags "-fPIC"
 
     args = %W[
       --prefix=#{prefix}
@@ -43,7 +43,6 @@ class GraphicsmagickPerl < Formula
       --without-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-wmf
-      CFLAGS=#{ENV.cflags}
     ]
 
     # versioned stuff in main tree is pointless for us
