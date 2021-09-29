@@ -8,7 +8,6 @@ class GraphicsmagickPerl < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "jasper"
-  depends_on "jbigkit"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -36,6 +35,7 @@ class GraphicsmagickPerl < Formula
       --enable-shared
       --with-perl
       --with-modules
+      --without-jbig
       --with-quantum-depth=16
       --without-lzma
       --without-x
@@ -44,14 +44,10 @@ class GraphicsmagickPerl < Formula
       --without-wmf
     ]
 
-    options = %W[
-      CFLAGS=#{ENV.cflags}
-    ]
-
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
-    system "make", "install", *options
+    system "make", "install"
   end
 
   test do
