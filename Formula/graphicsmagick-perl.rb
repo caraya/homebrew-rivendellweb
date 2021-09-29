@@ -5,6 +5,12 @@ class GraphicsmagickPerl < Formula
   sha256 "5d5b3fde759cdfc307aaf21df9ebd8c752e3f088bb051dd5df8aac7ba7338f46"
   head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
+  bottle do
+    root_url "https://github.com/caraya/homebrew-rivendellweb/releases/download/graphicsmagick-perl-1.3.36"
+    sha256 catalina:     "26f685e8ac20f33e7f784b20d02e89a92a2d649aa890228a57c7a08453191fed"
+    sha256 x86_64_linux: "95298b8cdddfb225aa47d2073033446e5d9e7da762152975828da1e7989dca65"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "jasper"
