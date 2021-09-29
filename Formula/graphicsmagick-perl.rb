@@ -43,7 +43,7 @@ class GraphicsmagickPerl < Formula
       --without-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-wmf
-      --host-cflags=#{ENV.cflags}
+      CFLAGS=#{ENV.cflags}
     ]
 
     # versioned stuff in main tree is pointless for us
