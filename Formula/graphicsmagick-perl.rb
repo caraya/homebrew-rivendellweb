@@ -2,7 +2,6 @@ class GraphicsmagickPerl < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.36/GraphicsMagick-1.3.36.tar.xz"
-  version "6"
   sha256 "5d5b3fde759cdfc307aaf21df9ebd8c752e3f088bb051dd5df8aac7ba7338f46"
   head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
@@ -27,7 +26,7 @@ class GraphicsmagickPerl < Formula
   skip_clean :la
 
   def install
-    ENV.append_to_cflags "-fPIC"
+    ENV["CFLAGS"]="-fPIC -DPIC"
 
     args = %W[
       --prefix=#{prefix}
@@ -45,10 +44,14 @@ class GraphicsmagickPerl < Formula
       --without-wmf
     ]
 
+    options = %W[
+      CFLAGS=#{ENV.cflags}
+    ]
+
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
-    system "make", "install"
+    system "make", "install", *options
   end
 
   test do
