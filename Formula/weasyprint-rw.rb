@@ -17,7 +17,7 @@ class WeasyprintRw < Formula
   depends_on "libffi"
   depends_on "openjpeg"
   depends_on "pango"
-  depends_on "python@3"
+  depends_on "python@3.9"
 
   resource "Brotli" do
     url "https://files.pythonhosted.org/packages/2a/18/70c32fe9357f3eea18598b23aa9ed29b1711c3001835f7cf99a9818985d0/Brotli-1.0.9.zip"
