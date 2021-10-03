@@ -9,9 +9,9 @@ class WeasyprintRw < Formula
   revision 1
 
   bottle do
-    root_url "https://github.com/caraya/homebrew-rivendellweb/releases/download/weasyprint-rw-53.3"
-    sha256 cellar: :any,                 catalina:     "bf3db97f8155aed65d836c4fb5c619e976bde9f2828c3643e2f36bfac25c5375"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0d50bdb5c41c927628706d4c38344edd4d86e1d9317ccf746cbbfd6fcbf84827"
+    root_url "https://github.com/caraya/homebrew-rivendellweb/releases/download/weasyprint-rw-53.3_1"
+    sha256 cellar: :any,                 catalina:     "2b74c21bb94217b57e7f8da7f4e07f596e55d5fdc6866d098ce7b92c8dddc841"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1c169de723265ffdfc534118fcd976eae9fc3af93b09f8ed0e2a60a670dc7cfe"
   end
 
   depends_on "libffi"
