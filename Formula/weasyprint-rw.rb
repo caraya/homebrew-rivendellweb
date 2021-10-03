@@ -82,6 +82,7 @@ class WeasyprintRw < Formula
   end
 
   test do
-    puts "Testing under development"
+    system "#{bin}/weasyprint", "http://weasyprint.org", "weasyprint-website.pdf"
+    assert_predicate testpath/"weasyprint-website.pdf", :exist?
   end
 end
