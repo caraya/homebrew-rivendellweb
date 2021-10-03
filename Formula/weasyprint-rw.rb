@@ -7,8 +7,8 @@ class WeasyprintRw < Formula
   sha256 "eab32acf81d14b6626e5e180c7f03b925ece915a69b314ce3061a0f3ec6bf9da"
   license "BSD-3-Clause"
 
-  depends_on "libffi"
-  depends_on "pango"
+  # depends_on "libffi"
+  # depends_on "pango"
   depends_on "python"
 
   resource "Brotli" do
