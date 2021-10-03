@@ -7,6 +7,12 @@ class WeasyprintRw < Formula
   sha256 "eab32acf81d14b6626e5e180c7f03b925ece915a69b314ce3061a0f3ec6bf9da"
   license "BSD-3-Clause"
 
+  bottle do
+    root_url "https://github.com/caraya/homebrew-rivendellweb/releases/download/weasyprint-rw-53.3"
+    sha256 cellar: :any,                 catalina:     "bf3db97f8155aed65d836c4fb5c619e976bde9f2828c3643e2f36bfac25c5375"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0d50bdb5c41c927628706d4c38344edd4d86e1d9317ccf746cbbfd6fcbf84827"
+  end
+
   depends_on "libffi"
   depends_on "openjpeg"
   depends_on "pango"
