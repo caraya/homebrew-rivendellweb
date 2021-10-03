@@ -6,6 +6,7 @@ class WeasyprintRw < Formula
   url "https://files.pythonhosted.org/packages/6c/36/8cbddf88d25260723e6d5d7b15b1cbfa86241cd30a65ba15ba51a1901a49/weasyprint-53.3.tar.gz"
   sha256 "eab32acf81d14b6626e5e180c7f03b925ece915a69b314ce3061a0f3ec6bf9da"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     root_url "https://github.com/caraya/homebrew-rivendellweb/releases/download/weasyprint-rw-53.3"
@@ -16,7 +17,7 @@ class WeasyprintRw < Formula
   depends_on "libffi"
   depends_on "openjpeg"
   depends_on "pango"
-  depends_on "python"
+  depends_on "python@3.x"
 
   resource "Brotli" do
     url "https://files.pythonhosted.org/packages/2a/18/70c32fe9357f3eea18598b23aa9ed29b1711c3001835f7cf99a9818985d0/Brotli-1.0.9.zip"
