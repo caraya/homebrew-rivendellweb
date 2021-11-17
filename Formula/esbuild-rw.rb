@@ -6,6 +6,7 @@ class EsbuildRw < Formula
   url "https://registry.npmjs.org/esbuild/-/esbuild-0.13.3.tgz"
   sha256 "da5ed75590a694b28901a3af8a761f6a1e90feac77cf2d758dc36d8a89db3a02"
   license "MIT"
+  revision 1
 
   bottle do
     root_url "https://github.com/caraya/homebrew-rivendellweb/releases/download/esbuild-rw-0.13.3"
