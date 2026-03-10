@@ -1,5 +1,5 @@
 class EsbuildRw < Formula
-  desc "An extremely fast bundler for the web"
+  desc "Extremely fast bundler for the web"
   homepage "https://esbuild.github.io/"
   url "https://github.com/evanw/esbuild/archive/refs/tags/v0.27.3.tar.gz"
   sha256 "05d56070104b46d24c8921bfc4c83209d71cf583eb0396c13d0f359705bb5b61"
