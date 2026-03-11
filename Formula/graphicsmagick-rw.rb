@@ -5,6 +5,8 @@ class GraphicsmagickRw < Formula
   sha256 "c7c706a505e9c6c3764156bb94a0c9644d79131785df15a89c9f8721d1abd061"
   license "MIT"
 
+  head "https://foss.heptapod.net/graphicsmagick/graphicsmagick/", using: :hg
+
   depends_on "pkgconf" => :build
 
   depends_on "freetype"
@@ -27,8 +29,6 @@ class GraphicsmagickRw < Formula
   end
 
   skip_clean :la
-
-  head "https://foss.heptapod.net/graphicsmagick/graphicsmagick/", using: :hg
 
   def install
     args = %W[
