@@ -29,7 +29,7 @@ class GraphicsmagickRw < Formula
   skip_clean :la
 
   head "https://foss.heptapod.net/graphicsmagick/graphicsmagick/", using: :hg
-  
+
   def install
     args = %W[
       --disable-openmp
