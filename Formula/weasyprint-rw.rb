@@ -1,23 +1,17 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://docs.brew.sh/rubydoc/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class WeasyprintRw < Formula
   include Language::Python::Virtualenv
 
-  desc "The awesome document factory"
+  desc "Awesome document factory"
   homepage "https://weasyprint.org"
   url "https://github.com/Kozea/WeasyPrint/archive/refs/tags/v68.1.tar.gz"
   sha256 "7195c741867a26f16db93bf3d5e275c3460781725bbaf202762535bcd8399444"
   license "BSD-3-Clause"
 
+  head "https://github.com/Kozea/WeasyPrint/", branch: "main"
+  
   depends_on "python@3.14"
 
-  # Additional dependency
-  # resource "" do
-  #   url ""
-  #   sha256 ""
-  # end
-
+  # Additional dependencies
   resource "brotli" do
     url "https://files.pythonhosted.org/packages/f7/16/c92ca344d646e71a43b8bb353f0a6490d7f6e06210f8554c8f874e454285/brotli-1.2.0.tar.gz"
     sha256 "e310f77e41941c13340a95976fe66a8a95b01e783d430eeaf7a2f87e0a57dd0a"
@@ -83,15 +77,6 @@ class WeasyprintRw < Formula
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test weasyprint-rw`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system bin/"program", "do", "something"`.
     system "false"
   end
 end
