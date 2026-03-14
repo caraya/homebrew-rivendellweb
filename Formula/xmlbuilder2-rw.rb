@@ -7,7 +7,9 @@ class Xmlbuilder2Rw < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe: "65511f3f07bbcabd7d1aaca225f86207c844a388215425816ad273db659bdfab"
+    root_url "https://ghcr.io/v2/caraya/rivendellweb-homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e9bf7580cf9b0da0dd0921ed837115b775a586139fab9c7160f9b7201aeff1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c50bc4f15b2d885c03491fc9db29d750b2e85fe21c18cbe45a94a5e5f2873b8"
   end
 
   depends_on "node"
