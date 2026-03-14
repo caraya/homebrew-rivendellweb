@@ -1,27 +1,31 @@
-class GraphicsmagickPerl < Formula
+class GraphicsmagickRw < Formula
   desc "Image processing tools collection"
-  homepage "http://www.graphicsmagick.org/"
-  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.36/GraphicsMagick-1.3.36.tar.xz"
-  sha256 "5d5b3fde759cdfc307aaf21df9ebd8c752e3f088bb051dd5df8aac7ba7338f46"
-  revision 2
-  head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
+  homepage "https://sourceforge.net/projects/graphicsmagick/"
+  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.46/GraphicsMagick-1.3.46.tar.xz"
+  sha256 "c7c706a505e9c6c3764156bb94a0c9644d79131785df15a89c9f8721d1abd061"
+  license "MIT"
+
+  head "https://foss.heptapod.net/graphicsmagick/graphicsmagick/", using: :hg
 
   bottle do
-    root_url "https://github.com/caraya/homebrew-rivendellweb/releases/download/graphicsmagick-perl-1.3.36"
-    sha256 catalina:     "26f685e8ac20f33e7f784b20d02e89a92a2d649aa890228a57c7a08453191fed"
-    sha256 x86_64_linux: "95298b8cdddfb225aa47d2073033446e5d9e7da762152975828da1e7989dca65"
+    sha256 arm64_tahoe: "d3d473e997ace83740aa92f95fc27d600fd477ada887a1c7b8c84c900760be90"
   end
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "jasper"
   depends_on "jpeg"
+  depends_on "jpeg-turbo"
+  depends_on "jpeg-xl"
+  depends_on "libheif"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
+  depends_on "libzip"
   depends_on "little-cms2"
   depends_on "perl"
   depends_on "webp"
+  depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
