@@ -3,7 +3,8 @@ class Xmlbuilder2Rw < Formula
   homepage "https://github.com/oozcitak/xmlbuilder2"
   url "https://registry.npmjs.org/xmlbuilder2/-/xmlbuilder2-4.0.3.tgz"
   sha256 "ec05eccfe8c35a04ff19eddf30eeb3f96fc66f5dbe0f094e7c26a52fb69c2bdf"
-  license ""
+  license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_tahoe: "65511f3f07bbcabd7d1aaca225f86207c844a388215425816ad273db659bdfab"
