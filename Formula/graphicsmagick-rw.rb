@@ -9,7 +9,9 @@ class GraphicsmagickRw < Formula
   head "https://foss.heptapod.net/graphicsmagick/graphicsmagick/", using: :hg
 
   bottle do
-    sha256 arm64_tahoe: "d3d473e997ace83740aa92f95fc27d600fd477ada887a1c7b8c84c900760be90"
+    root_url "https://ghcr.io/v2/caraya/rivendellweb-homebrew"
+    sha256 arm64_sequoia: "7e30a7415dad9d13cbebbfad49dc14610d86faade434036f73f6c30c3cef1617"
+    sha256 x86_64_linux:  "d696f94d6d812450a7a31f1325638814a824662c8243b25cd3e6e68b0dabbd33"
   end
 
   depends_on "pkg-config" => :build
