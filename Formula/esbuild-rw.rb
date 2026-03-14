@@ -8,6 +8,12 @@ class EsbuildRw < Formula
 
   head "https://github.com/evanw/esbuild.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/caraya/rivendellweb-homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "14a48501da4495bd4f45913fd8bba4233bfcc84c02a9e7d9730bc8b7a0fe4ea2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "114f46dbfcb8b029dcca8d348fd713101799f01769d5ed306fb558aeafc9d661"
+  end
+
   depends_on "go" => :build
   depends_on "node" => :test
 
