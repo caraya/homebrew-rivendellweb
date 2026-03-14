@@ -6,12 +6,32 @@ class WeasyprintRw < Formula
   url "https://github.com/Kozea/WeasyPrint/archive/refs/tags/v68.1.tar.gz"
   sha256 "7195c741867a26f16db93bf3d5e275c3460781725bbaf202762535bcd8399444"
   license "BSD-3-Clause"
+  head "https://github.com/Kozea/WeasyPrint.git", branch: "main"
 
-  head "https://github.com/Kozea/WeasyPrint/", branch: "main"
+  bottle do
+    sha256 cellar: :any, arm64_tahoe: "a17c3847f345e38d5bef6cb3eb33161ae5848c0f7779adb9ce76bbe88ca7cfa0"
+  end
 
+  depends_on "freetype"
+  depends_on "jpeg-turbo"
+  depends_on "libxcb"
   depends_on "python@3.14"
 
-  # Additional dependencies
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+  end
+
+  resource "flit-core" do
+    url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
+    sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
+  end
+
+  resource "pybind11" do
+    url "https://files.pythonhosted.org/packages/88/c5/e98d9c51f3d5300d5e40ad9037dd6b3b60736fd02ab68dcc98c96be7592d/pybind11-3.0.2-py3-none-any.whl"
+    sha256 "f8a6500548919cc33bcd220d5f984688326f574fa97f1107f2f4fdb4c6fb019f"
+  end
+
   resource "brotli" do
     url "https://files.pythonhosted.org/packages/f7/16/c92ca344d646e71a43b8bb353f0a6490d7f6e06210f8554c8f874e454285/brotli-1.2.0.tar.gz"
     sha256 "e310f77e41941c13340a95976fe66a8a95b01e783d430eeaf7a2f87e0a57dd0a"
@@ -28,8 +48,8 @@ class WeasyprintRw < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/5a/96/686339e0fda8142b7ebed39af53f4a5694602a729662f42a6209e3be91d0/fonttools-4.62.0.tar.gz"
-    sha256 "0dc477c12b8076b4eb9af2e440421b0433ffa9e1dcb39e0640a6c94665ed1098"
+    url "https://files.pythonhosted.org/packages/9a/08/7012b00a9a5874311b639c3920270c36ee0c445b69d9989a85e5c92ebcb0/fonttools-4.62.1.tar.gz"
+    sha256 "e54c75fd6041f1122476776880f7c3c3295ffa31962dc6ebe2543c00dca58b5d"
   end
 
   resource "pillow" do
@@ -73,10 +93,19 @@ class WeasyprintRw < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.14")
+    venv.pip_install resource("setuptools"), build_isolation: false
+    venv.pip_install resource("flit-core"), build_isolation: false
+    venv.pip_install resource("pybind11"), build_isolation: false
+    venv.pip_install(
+      resources.reject { |r| ["setuptools", "flit-core", "pybind11"].include?(r.name) },
+      build_isolation: false,
+    )
+    venv.pip_install_and_link buildpath, build_isolation: false
   end
 
   test do
-    system "false"
+    system "#{bin}/weasyprint", "http://weasyprint.org", "weasyprint-website.pdf"
+    assert_path_exists testpath/"weasyprint-website.pdf"
   end
 end
