@@ -1,77 +1,85 @@
 class WeasyprintRw < Formula
   include Language::Python::Virtualenv
 
-  desc "Open source CSS and HTML to PDF converter"
-  homepage "https://weasyprint.org/"
-  url "https://files.pythonhosted.org/packages/6c/36/8cbddf88d25260723e6d5d7b15b1cbfa86241cd30a65ba15ba51a1901a49/weasyprint-53.3.tar.gz"
-  sha256 "eab32acf81d14b6626e5e180c7f03b925ece915a69b314ce3061a0f3ec6bf9da"
+  desc "Awesome document factory"
+  homepage "https://weasyprint.org"
+  url "https://github.com/Kozea/WeasyPrint/archive/refs/tags/v68.1.tar.gz"
+  sha256 "7195c741867a26f16db93bf3d5e275c3460781725bbaf202762535bcd8399444"
   license "BSD-3-Clause"
-  revision 1
+  head "https://github.com/Kozea/WeasyPrint.git", branch: "main"
 
   bottle do
-    root_url "https://github.com/caraya/homebrew-rivendellweb/releases/download/weasyprint-rw-53.3_1"
-    sha256 cellar: :any,                 catalina:     "2b74c21bb94217b57e7f8da7f4e07f596e55d5fdc6866d098ce7b92c8dddc841"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1c169de723265ffdfc534118fcd976eae9fc3af93b09f8ed0e2a60a670dc7cfe"
+    sha256 cellar: :any, arm64_tahoe: "a17c3847f345e38d5bef6cb3eb33161ae5848c0f7779adb9ce76bbe88ca7cfa0"
   end
 
-  depends_on "libffi"
-  depends_on "openjpeg"
-  depends_on "pango"
-  depends_on "python@3.9"
+  depends_on "freetype"
+  depends_on "jpeg-turbo"
+  depends_on "libxcb"
+  depends_on "python@3.14"
 
-  resource "Brotli" do
-    url "https://files.pythonhosted.org/packages/2a/18/70c32fe9357f3eea18598b23aa9ed29b1711c3001835f7cf99a9818985d0/Brotli-1.0.9.zip"
-    sha256 "4d1b810aa0ed773f81dceda2cc7b403d01057458730e309856356d4ef4188438"
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+  end
+
+  resource "flit-core" do
+    url "https://files.pythonhosted.org/packages/69/59/b6fc2188dfc7ea4f936cd12b49d707f66a1cb7a1d2c16172963534db741b/flit_core-3.12.0.tar.gz"
+    sha256 "18f63100d6f94385c6ed57a72073443e1a71a4acb4339491615d0f16d6ff01b2"
+  end
+
+  resource "pybind11" do
+    url "https://files.pythonhosted.org/packages/88/c5/e98d9c51f3d5300d5e40ad9037dd6b3b60736fd02ab68dcc98c96be7592d/pybind11-3.0.2-py3-none-any.whl"
+    sha256 "f8a6500548919cc33bcd220d5f984688326f574fa97f1107f2f4fdb4c6fb019f"
+  end
+
+  resource "brotli" do
+    url "https://files.pythonhosted.org/packages/f7/16/c92ca344d646e71a43b8bb353f0a6490d7f6e06210f8554c8f874e454285/brotli-1.2.0.tar.gz"
+    sha256 "e310f77e41941c13340a95976fe66a8a95b01e783d430eeaf7a2f87e0a57dd0a"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
-    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
+    url "https://files.pythonhosted.org/packages/eb/56/b1ba7935a17738ae8453301356628e8147c79dbb825bcbc73dc7401f9846/cffi-2.0.0.tar.gz"
+    sha256 "44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529"
   end
 
   resource "cssselect2" do
-    url "https://files.pythonhosted.org/packages/ad/3d/fb764303deb34cbc1a32fcecdfd239367cb16323920c88390b2f5ad751f0/cssselect2-0.4.1.tar.gz"
-    sha256 "93fbb9af860e95dd40bf18c3b2b6ed99189a07c0f29ba76f9c5be71344664ec8"
+    url "https://files.pythonhosted.org/packages/e0/20/92eaa6b0aec7189fa4b75c890640e076e9e793095721db69c5c81142c2e1/cssselect2-0.9.0.tar.gz"
+    sha256 "759aa22c216326356f65e62e791d66160a0f9c91d1424e8d8adc5e74dddfc6fb"
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/37/8b/867cdac69d5212b3eee781e40cfe539c4d9d7b2d4c9290bcdecd2d218176/fonttools-4.27.1.zip"
-    sha256 "6e483f77dc5b862452c2888ec944fca5b79cffb741c7469786a442360681b4e8"
+    url "https://files.pythonhosted.org/packages/9a/08/7012b00a9a5874311b639c3920270c36ee0c445b69d9989a85e5c92ebcb0/fonttools-4.62.1.tar.gz"
+    sha256 "e54c75fd6041f1122476776880f7c3c3295ffa31962dc6ebe2543c00dca58b5d"
   end
 
-  resource "html5lib" do
-    url "https://files.pythonhosted.org/packages/ac/b6/b55c3f49042f1df3dcd422b7f224f939892ee94f22abcf503a9b7339eaf2/html5lib-1.1.tar.gz"
-    sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
-  end
-
-  resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/90/d4/a7c9b6c5d176654aa3dbccbfd0be4fd3a263355dc24122a5f1937bdc2689/Pillow-8.3.2.tar.gz"
-    sha256 "dde3f3ed8d00c72631bc19cbfff8ad3b6215062a5eed402381ad365f82f0c18c"
+  resource "pillow" do
+    url "https://files.pythonhosted.org/packages/1f/42/5c74462b4fd957fcd7b13b04fb3205ff8349236ea74c7c375766d6c82288/pillow-12.1.1.tar.gz"
+    sha256 "9ad8fa5937ab05218e2b6a4cff30295ad35afd2f83ac592e68c0d871bb0fdbc4"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
-    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+    url "https://files.pythonhosted.org/packages/1b/7d/92392ff7815c21062bea51aa7b87d45576f649f16458d78b7cf94b9ab2e6/pycparser-3.0.tar.gz"
+    sha256 "600f49d217304a5902ac3c37e1281c9fe94e4d0489de643a9504c5cdfdfc6b29"
   end
 
   resource "pydyf" do
-    url "https://files.pythonhosted.org/packages/2d/6d/f2515b07799c869b7b0de81a05fe3dc620b9022a4397b9c70721b1ba1189/pydyf-0.1.1.tar.gz"
-    sha256 "1a6eb2bb94c49eebe4cbd69c8c3c5664b16857cdf00e8347bff97b40c72a33e8"
+    url "https://files.pythonhosted.org/packages/36/ee/fb410c5c854b6a081a49077912a9765aeffd8e07cbb0663cfda310b01fb4/pydyf-0.12.1.tar.gz"
+    sha256 "fbd7e759541ac725c29c506612003de393249b94310ea78ae44cb1d04b220095"
   end
 
   resource "pyphen" do
-    url "https://files.pythonhosted.org/packages/9a/f8/af869a4983c1b3159945479510260985714265d48baf27d61f72b1ec8cbf/pyphen-0.11.0.tar.gz"
-    sha256 "e2c3ed82c3a04317df5102addafe89652b0876bc6c6265f5dd4c3efaf02315e8"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+    url "https://files.pythonhosted.org/packages/69/56/e4d7e1bd70d997713649c5ce530b2d15a5fc2245a74ca820fc2d51d89d4d/pyphen-0.17.2.tar.gz"
+    sha256 "f60647a9c9b30ec6c59910097af82bc5dd2d36576b918e44148d8b07ef3b4aa3"
   end
 
   resource "tinycss2" do
-    url "https://files.pythonhosted.org/packages/ce/d3/ece7a98d5826bd134e269a3a3030153d30482194fca71d95a3041812aab8/tinycss2-1.1.0.tar.gz"
-    sha256 "fbdcac3044d60eb85fdb2aa840ece43cf7dbe798e373e6ee0be545d4d134e18a"
+    url "https://files.pythonhosted.org/packages/a3/ae/2ca4913e5c0f09781d75482874c3a95db9105462a92ddd303c7d285d3df2/tinycss2-1.5.1.tar.gz"
+    sha256 "d339d2b616ba90ccce58da8495a78f46e55d4d25f9fd71dfd526f07e7d53f957"
+  end
+
+  resource "tinyhtml5" do
+    url "https://files.pythonhosted.org/packages/b1/1f/cfe2f6b30557c92b3f31d41707e09cef5c1efbd87392bc6c0430c46b0e4d/tinyhtml5-2.1.0.tar.gz"
+    sha256 "60a50ec3d938a37e491efa01af895853060943dcebb5627de5b10d188b338a67"
   end
 
   resource "webencodings" do
@@ -80,16 +88,24 @@ class WeasyprintRw < Formula
   end
 
   resource "zopfli" do
-    url "https://files.pythonhosted.org/packages/22/a3/bafb06f33bc196ad962b0206791e12e2e3069fcc98b61cbc36df430d95cc/zopfli-0.1.8.zip"
-    sha256 "8b977dc07e3797907ab59e08096583bcd0b7e6c739849fbbeec09263f6356623"
+    url "https://files.pythonhosted.org/packages/0a/4d/a8cc1768b2eda3c0c7470bf8059dcb94ef96d45dd91fc6edd29430d44072/zopfli-0.4.1.tar.gz"
+    sha256 "07a5cdc5d1aaa6c288c5d9f5a5383042ba743641abf8e2fd898dcad622d8a38e"
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.14")
+    venv.pip_install resource("setuptools"), build_isolation: false
+    venv.pip_install resource("flit-core"), build_isolation: false
+    venv.pip_install resource("pybind11"), build_isolation: false
+    venv.pip_install(
+      resources.reject { |r| ["setuptools", "flit-core", "pybind11"].include?(r.name) },
+      build_isolation: false,
+    )
+    venv.pip_install_and_link buildpath, build_isolation: false
   end
 
   test do
     system "#{bin}/weasyprint", "http://weasyprint.org", "weasyprint-website.pdf"
-    assert_predicate testpath/"weasyprint-website.pdf", :exist?
+    assert_path_exists testpath/"weasyprint-website.pdf"
   end
 end

@@ -1,17 +1,18 @@
 class EsbuildRw < Formula
-  desc "An extremely fast bundler for the web"
+  desc "Extremely fast bundler for the web"
   homepage "https://esbuild.github.io/"
   url "https://github.com/evanw/esbuild/archive/refs/tags/v0.27.3.tar.gz"
   sha256 "05d56070104b46d24c8921bfc4c83209d71cf583eb0396c13d0f359705bb5b61"
   license "MIT"
 
+  head "https://github.com/evanw/esbuild.git", branch: "main"
+
+  depends_on "go" => :build
   depends_on "node" => :test
 
   def install
-    system "npm", "install", *std_npm_args
-    bin.install_symlink libexec.glob("bin/*")
-
-    head "https://github.com/evanw/esbuild/", branch: "main"
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
+    system "go", "build", *std_go_args(output: bin/"esbuild", ldflags: "-s -w"), "./cmd/esbuild"
   end
 
   test do
